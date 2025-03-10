@@ -14,10 +14,17 @@ if "username" not in st.session_state:
     st.session_state.username = "Default User"
 if "autheticated" not in st.session_state:
     st.session_state.autheticated = False
-conn = sqlite3.connect('user_data.db')
-c = conn.cursor()
-c.execute('''CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT)''')
-conn.commit()
+
+try:
+    conn = sqlite3.connect('user_data.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT)''')
+    conn.commit()
+except sqlite3.OperationalError as e:
+    if "unable to open database file" in str(e).lower():
+        st.error("Register first user: Database file not found")
+    else:
+        st.error(f"Database error: {e}")
 
 # # Connect to the SQLite database (or create it if it doesn't exist)
 # conn = sqlite3.connect('user_data.db')
@@ -50,9 +57,13 @@ def create_chat_history_table():
         c.execute('''CREATE TABLE IF NOT EXISTS chat_history (username TEXT, question TEXT, answer TEXT)''')
         conn.commit()
         conn.close()
+        st.info("Chat history table is ready.")
+    except sqlite3.Error as e:
+        st.info("Setting up chat history database...")
+        print(f"Database note: {e}")
     except Exception as e:
-        st.error(f"Error creating table: {e}")
-        print(f"Error creating table: {e}")
+        st.info("Preparing chat history functionality...")
+        print(f"Note during chat history setup: {e}")
 
 # def create_chat_history_table():
 #     try:
