@@ -10,6 +10,8 @@ import sqlite3
 import hashlib
 import openai
 
+openai.api_key = st.secrets["openai"]["api_key"]
+
 if "username" not in st.session_state:
     st.session_state.username = "Default User"
 if "autheticated" not in st.session_state:
@@ -326,8 +328,7 @@ def show_authentication_page():
 #                     else:
 #                         st.error(message)
 
-#openai.api_key = "sk-oEEFroL6ajpavJFZPjlBUTFJ4jM28xAtbErrf3r-MKT3BlbkFJH32gyUFOEyZ80pYCo7GNwEMUsoO6TosAjkaN0nckEA"
-openai.api_key = "sk-oEEFroL6ajpavJFZPjlBUTFJ4jM28xAtbErrf3r-MKT3BlbkFJH32gyUFOEyZ80pYCo7GNwEMUsoO6TosAjkaN0nckEA"
+openai.api_key = st.secrets["openai"]["api_key"]
 
 #To load css file
 # def loads_css(css_file):
