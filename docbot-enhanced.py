@@ -11,7 +11,7 @@ import hashlib
 
 # Configure Gemini API
 genai.configure(api_key=st.secrets["gemini"]["api_key"])
-model = genai.GenerativeModel("gemini-1.5-pro")
+model = genai.GenerativeModel("gemini-1.5-flash-8b")
 
 if "username" not in st.session_state:
     st.session_state.username = "Default User"
