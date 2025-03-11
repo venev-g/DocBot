@@ -1,26 +1,170 @@
-.chat-box {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.9);
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+.stApp {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgb(67 69 78);
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-.white-background {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+.st-emotion-cache-1788y8l{
+    width: 224px;
+    position: relative;
+    /* Adjusted transform to be less extreme */
+    transform: translateY(-50%);
+    max-height: 100%; /* Prevent vertical cropping */
+}
+
+.st-emotion-cache-h4xjwg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: auto; /* Changed from 0px to auto */
+}
+
+.st-emotion-cache-1r6slb0 {
+    background: rgb(36, 37, 48);
+    z-index: 1;
+    text-align: center;
+    margin-top: 10px; /* Changed from -41px to a positive value */
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.st-emotion-cache-mtjnbi {
+    width: 100%;
+    padding: 10px !important; /* Changed from 0 to provide some padding */
+    margin: 23px 2rem !important;
+    max-width: none !important;
+}
+
+.st-emotion-cache-b95f0i {
+    margin: 0 2rem;
+}
+
+.st-emotion-cache-1erivf3{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgb(38, 39, 48);
+    border-radius: 0.3rem;
+    color: rgb(250, 250, 250);
+    font-size: 0.8rem;
+    width: 40%;
+    margin: 10px auto; /* Added top/bottom margin */
+}
+
+.white-background{
+    background-color: white;
+    color: black;
     padding: 15px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-.file-uploader {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+.st-emotion-cache-14ns2k7 {
+    width: 100%; /* Changed from fixed width to responsive */
+    max-width: 1464px;
+    position: relative;
+    display: block;
+    flex: none;
+}
+
+.st-emotion-cache-16rykc8 {
+    padding: 0px 66px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.st-emotion-cache-b0y9n5 {
+    background-color: rgb(43 45 55);
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 12px;
+    margin: 10px auto;
+    width: 22vw;
+    max-width: 100%; /* Ensure it doesn't overflow on small screens */
+}
+
+.about-box{
+    background-color: #f7f7f7;
+    width: 45%;
+    max-width: 100%; /* Ensure it doesn't overflow on small screens */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.st-emotion-cache-15hul6a{
+    display: inline-flex;
+    font-weight: 400;
+    padding: 0.25rem 2rem; /* Reduced padding to prevent overflow */
+    min-height: 3.1rem;
+    line-height: 1.6;
+    user-select: none;
+    background-color: rgb(38, 39, 48);
+    border: 2px solid white;
+    border-radius: 1rem;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.st-emotion-cache-15hul6a:hover {
+    border-color: rgb(39 40 43);
+    color: rgb(255 234 234);
+}
+
+.st-emotion-cache-13k62yr {
+    margin-top: 10px; /* Changed from -57px to a positive value */
+}
+
+.st-emotion-cache-13ln4jf {
+    width: 100%;
+    padding: 3rem 1rem; /* Reduced padding */
+    max-width: 87rem;
+    margin-top: 10px; /* Changed from -48px to a positive value */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.know-app-btn {
+    width: 30%;
+    max-width: 250px; /* Added max-width for responsiveness */
+    min-width: 150px; /* Added min-width for small screens */
+    padding: 15px;
+    font-size: 20px;
+    border: 3px solid white;
+    background-color: #2f343a;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.chat-box{ 
+    background-color: white; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    color: black; 
+    width: 100%; 
+    margin-left: auto; 
+    margin-right: auto;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Add responsive media queries for better mobile experience */
+@media (max-width: 768px) {
+    .st-emotion-cache-b0y9n5 {
+        width: 80vw;
+    }
+    
+    .about-box {
+        width: 90%;
+    }
+    
+    .st-emotion-cache-15hul6a {
+        padding: 0.25rem 1rem;
+    }
+    
+    .know-app-btn {
+        width: 80%;
+    }
 }
