@@ -1,7 +1,6 @@
 import streamlit as st
 from PyPDF2 import PdfReader, PdfWriter
 import google.generativeai as genai
-import openai
 import os
 import tempfile
 import pdfplumber
@@ -208,7 +207,7 @@ def loads_css(css_file):
 
 def navigate(new_page):
     st.query_params["page"] = new_page
-    
+
 def navigation():
     if 'authenticated' in st.session_state and st.session_state.authenticated:
         col1, col2, col3, col4 = st.columns([1,1,1,1])
@@ -304,8 +303,10 @@ def generate_doc_metadata(pdf_text):
             text = text.split("Key Points:")[0] + "Key Points:\n" + text.split("Key Points:")[1].split("\n\n")[0]
         formatted_text = text.replace("**", "<b>").replace("[", "").replace("]", "</b>")
         return formatted_text
-    except openai.OpenAIError as e:
+    except Exception as e:
         return f"Error: {str(e)}"
+    # except openai.OpenAIError as e:
+    #     return f"Error: {str(e)}"
 
 def translation_with_openai(full_text, target_language):
     prompt = f"""
@@ -318,8 +319,10 @@ def translation_with_openai(full_text, target_language):
     try:
         response = model.generate_content(prompt)
         return response.text
-    except openai.OpenAIError as e:
+    except Exception as e:
         return f"Translation failed: {str(e)}"
+    # except openai.OpenAIError as e:
+    #     return f"Translation failed: {str(e)}"
 
 def convert_file_format(uploaded_file, target_format):
     input_format = uploaded_file.name.split('.')[-1].lower()

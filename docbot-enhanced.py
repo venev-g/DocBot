@@ -265,6 +265,8 @@ def extract_txt_from_pdf(uploaded_file):
     full_text = "\n".join([page.extract_text() for page in pdf_reader.pages if page.extract_text()])
     return full_text
 
+
+
 def generate_doc_metadata(pdf_text):
     prompt =f"""
     You are an AI assistant that processes documents and extracts key details.
