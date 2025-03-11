@@ -51,7 +51,7 @@
     color: rgb(250, 250, 250);
     font-size: 0.8rem;
     width: 40%;
-    margin: 5px auto; /* Added top/bottom margin */
+    margin: 10px auto; /* Added top/bottom margin */
 }
 
 .white-background{
@@ -84,6 +84,7 @@
     margin: 10px auto;
     width: 22vw;
     max-width: 100%; /* Ensure it doesn't overflow on small screens */
+    margin-top: -1px;
 }
 
 .about-box{
@@ -112,7 +113,7 @@
 }
 
 .st-emotion-cache-13k62yr {
-    margin-top: 10px; /* Changed from -57px to a positive value */
+    margin-top: -35px; /* Changed from -57px to a positive value */
 }
 
 .st-emotion-cache-13ln4jf {
@@ -125,10 +126,10 @@
 
 .know-app-btn {
     width: 30%;
-    max-width: 250px; /* Added max-width for responsiveness */
-    min-width: 150px; /* Added min-width for small screens */
+    max-width: 100%; /* Allow responsive scaling */
+    min-width: 150px; /* Maintain minimum readable size */
     padding: 15px;
-    font-size: 20px;
+    font-size: 30px;
     border: 3px solid white;
     background-color: #2f343a;
     color: white;
