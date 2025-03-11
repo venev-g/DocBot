@@ -8,6 +8,7 @@ import pypandoc
 from docx import Document as DocxDocument
 import sqlite3
 import hashlib
+import time
 
 # Configure Gemini API
 genai.configure(api_key=st.secrets["gemini"]["api_key"])
@@ -105,6 +106,34 @@ if "registered" not in st.session_state:
 if st.session_state.registered:
     st.session_state.registered = False
 
+def delete_user(username):
+    try:
+        conn = sqlite3.connect("chat_history.db")
+        c = conn.cursor()
+        c.execute("DELETE FROM chat_history WHERE username = ?", (username,))
+        conn.commit()
+        conn.close()
+        st.session_state.chat_history = []
+
+        conn = sqlite3.connect("user_data.db")
+        c = conn.cursor()
+        c.execute("DELETE FROM users WHERE username = ?", (username,))
+        conn.commit()
+        conn.close()
+        st.session_state.chat_history = []
+        st.success("")
+    except Exception as e:
+        st.error(f"Error deleting user data : {str(e)}")
+
+def logout():
+    if "username" in st.session_state:
+        # delete_user(st.session_state.username)
+        st.session_state.username = "Default User"
+        st.session_state.authenticated = False
+        st.success("Logged out successfully")
+    else:
+        st.write("You are not logged in.")
+
 def about_page():
     st.title("About This App")
     st.markdown("""
@@ -183,7 +212,7 @@ def navigate(new_page):
 
 def navigation():
     if 'authenticated' in st.session_state and st.session_state.authenticated:
-        col1, col2, col3 = st.columns([1,1,1])
+        col1, col2, col3, col4 = st.columns([1,1,1,1])
         with col1:
             if st.button("Home"):
                 navigate("home")
@@ -196,6 +225,15 @@ def navigation():
             if st.button("Chat History"):
                 navigate("chat-history")
                 st.rerun()
+        with col4:
+            if st.button("Logout"):
+                logout()
+                st.session_state.username = "Default User"
+                st.session_state.authenticated = False
+                #st.success("Logged out succesfully")
+                time.sleep(1)  # 1-second delay
+                st.rerun()
+                
     else:
         st.write("")
 
